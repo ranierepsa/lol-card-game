@@ -17,21 +17,33 @@
 <body>
     <main>
         <section class="card-desc-section">
-            <div>
+            <div id="card-not-selected" class="hidden">
                 <h1>Select a Card</h1>
-            </dic>
-            <div class="hidden">
-                <p>Card Title</p>
-                <p>Card Subtitle</p>
-                <p>Card Image</p>
-                <p>Card Power</p>
+            </div>
+            <div id="card-selected" class="card-selected">
+                <div>
+                    <p>Card Title</p>
+                    <p>Card Subtitle</p>
+                </div>
+                <div>
+                    <p>Card Image</p>
+                    <p>Card Power</p>
+                </div>
                 <p>Card Description</p>
             </div>
         </section>
 
         <section class="game-section">
-
+            <div class="deck enemy-deck"></div>
+            <div class="versus">
+                <div id="versus-player-card" class="versus-card"></div>
+                <div class="versus-image"></div>
+                <div id="versus-enemy-card" class="versus-card"></div>
+            </div>
+            <div class="deck player-deck"></div>
         </section>
     </main>
+
+    <script defer type="text/javascript" src="./src/scripts/engine.js"></script>
 </body>
 </html>
