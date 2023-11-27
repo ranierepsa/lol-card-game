@@ -3,4 +3,6 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Press Start 2P', sans-serif;
+    color: white;
+    text-shadow: 2px 2px #000, 2px -2px #000, -2px 2px #000, -2px -2px #000;
 }

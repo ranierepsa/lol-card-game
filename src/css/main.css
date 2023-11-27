@@ -1,0 +1,32 @@
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.card-desc-section {
+    width: 30%;
+    height: 100%;
+    background-color: #a9a9a9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-section {
+    width: 70%;
+    height: 100%;
+    background-color: #FFFFCF;
+}
+
+.hidden {
+    display: none;
+}
