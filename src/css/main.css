@@ -54,8 +54,13 @@ main {
 
 .deck {
     width: 100%;
-    height: 20%;
+    height: 200px;
     background-color: brown;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+
 }
 
 .versus {
@@ -78,7 +83,13 @@ main {
 
 .versus-card {
     /* padding: 50px; */
-    width: 308px;
-    height: 560px;
+    width: 165px;
+    height: 300px;
     border: 1px solid black;
+}
+
+.deck-card {
+    /* aspect-ratio 11x20 */
+    width: 110px;
+    height: 200px;
 }
