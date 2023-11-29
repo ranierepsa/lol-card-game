@@ -92,4 +92,9 @@ main {
     /* aspect-ratio 11x20 */
     width: 110px;
     height: 200px;
+    transition: transform 0.2s;
+}
+
+.deck-card:hover {
+    transform: scale(1.2);
 }
