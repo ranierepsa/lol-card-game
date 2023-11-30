@@ -25,6 +25,11 @@ async function getChampionImageByName(name) {
         .then(blob => URL.createObjectURL(blob));
 }
 
+function getRandomEnemyCard() {
+    const cards = document.getElementById('enemy-deck').children;
+    return cards.item(Math.floor(Math.random() * cards.length));
+}
+
 function selectCard(event) {
     const selectedCard = event.target;
 
@@ -34,9 +39,12 @@ function selectCard(event) {
     // deletar carta do jogador
     selectedCard.remove();
 
-    // deletar carto do inimigo
-
     //criar carta no versus para o inimigo
+    const enemyCard = getRandomEnemyCard();
+    state.enemyVersus.src = enemyCard.src;
+
+    // deletar carto do inimigo
+    enemyCard.remove();
 }
 
 async function drawCards(amount, isPlayer) {
