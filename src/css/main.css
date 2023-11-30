@@ -60,13 +60,11 @@ main {
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
-
 }
 
 .versus {
     width: 100%;
-    height: 100%;
-    border: 1px solid red;
+    /* height: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,19 +80,20 @@ main {
 }
 
 .versus-card {
-    /* padding: 50px; */
     width: 165px;
     height: 300px;
-    border: 1px solid black;
 }
 
 .deck-card {
     /* aspect-ratio 11x20 */
     width: 110px;
     height: 200px;
+}
+
+.player-deck-card {
     transition: transform 0.2s;
 }
 
-.deck-card:hover {
+.player-deck-card:hover {
     transform: scale(1.2);
 }

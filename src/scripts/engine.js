@@ -3,8 +3,8 @@ const champImageURL = (champion) => `https://ddragon.leagueoflegends.com/cdn/img
 let championsJson;
 
 const state = {
-    playerDeck: document.getElementsByClassName('player-deck')[0],
-    enemyDeck: document.getElementsByClassName('enemy-deck')[0],
+    playerDeck: document.getElementById('player-deck'),
+    enemyDeck: document.getElementById('enemy-deck'),
     playerVersus: document.getElementById('versus-player-card'),
     enemyVersus: document.getElementById('versus-enemy-card')
 }
@@ -30,9 +30,9 @@ function selectCard(event) {
 
     // Atualizar carta no versus para o jogador
     state.playerVersus.src = selectedCard.src;
-
+    
     // deletar carta do jogador
-    document.getElementById(selectedCard.id).remove();
+    selectedCard.remove();
 
     // deletar carto do inimigo
 
@@ -45,8 +45,8 @@ async function drawCards(amount, isPlayer) {
         const champion = getRandomChampion();
         cardImage.src = await getChampionImageByName(champion.id);
         cardImage.classList.add('deck-card');
-        cardImage.id = champion.id;
         if (isPlayer) {
+            cardImage.classList.add('player-deck-card');
             cardImage.addEventListener('click', selectCard);
             state.playerDeck.appendChild(cardImage);
         } else {
