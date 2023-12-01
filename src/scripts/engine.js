@@ -36,14 +36,14 @@ function selectCard(event) {
     // Atualizar carta no versus para o jogador
     state.playerVersus.src = selectedCard.src;
     
-    // deletar carta do jogador
+    // Deletar carta do jogador
     selectedCard.remove();
 
-    //criar carta no versus para o inimigo
+    // Atualizar carta no versus para o inimigo
     const enemyCard = getRandomEnemyCard();
     state.enemyVersus.src = enemyCard.src;
 
-    // deletar carto do inimigo
+    // Deletar carto do inimigo
     enemyCard.remove();
 }
 
