@@ -80,8 +80,8 @@ main {
 }
 
 .versus-card {
-    width: 165px;
-    height: 300px;
+    width: 143px;
+    height: 260px;
 }
 
 .deck-card {
@@ -95,5 +95,5 @@ main {
 }
 
 .player-deck-card:hover {
-    transform: scale(1.2);
+    transform: scale(1.2) translateY(-20px);
 }
