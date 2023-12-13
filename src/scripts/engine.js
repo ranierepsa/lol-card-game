@@ -10,7 +10,7 @@ const state = {
     cardDetail: {
         cardTitle: document.getElementById('detail-card-title'),
         cardSubTitle: document.getElementById('detail-card-subtitle'),
-        cardImage: document.getElementById('detail-card-image'),
+        cardImage: document.getElementById('card-selected'),
         cardPower: document.getElementById('detail-card-power'),
         cardDescription: document.getElementById('detail-card-description')
     }
@@ -55,15 +55,13 @@ function selectCard(event) {
 }
 
 async function updateDetailSection(event) {
-    const card = event.target;
-    const champion = JSON.parse(card.dataset.champion);
+    const champion = JSON.parse(event.target.dataset.champion);
 
     state.cardDetail.cardTitle.innerHTML = champion.name;
     state.cardDetail.cardSubTitle.innerHTML = champion.title;
     state.cardDetail.cardPower.innerHTML = (Number(champion.info.difficulty) * 500);
     state.cardDetail.cardDescription.innerHTML = champion.blurb;
-    console.log(champImageURL(champion.id));
-    document.getElementById('card-selected').style.backgroundImage = `url('${champImageURL(champion.id)}')`;
+    state.cardDetail.cardImage.style.backgroundImage = `url('${champImageURL(champion.id)}')`;
 }
 
 async function drawCards(amount, isPlayer) {
