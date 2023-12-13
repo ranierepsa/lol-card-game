@@ -60,13 +60,10 @@ async function updateDetailSection(event) {
 
     state.cardDetail.cardTitle.innerHTML = champion.name;
     state.cardDetail.cardSubTitle.innerHTML = champion.title;
-
-    console.log(champion.info.difficulty);
-    console.log(Number(champion.info.difficulty));
-
-    state.cardDetail.cardPower.innerHTML = Number(champion.info.difficulty) * 500;
+    state.cardDetail.cardPower.innerHTML = (Number(champion.info.difficulty) * 500);
     state.cardDetail.cardDescription.innerHTML = champion.blurb;
-    state.cardDetail.cardImage.src = await getChampionImageByName(champion.id);
+    console.log(champImageURL(champion.id));
+    document.getElementById('card-selected').style.backgroundImage = `url('${champImageURL(champion.id)}')`;
 }
 
 async function drawCards(amount, isPlayer) {
