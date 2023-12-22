@@ -59,7 +59,7 @@ main {
 .deck {
     width: 100%;
     height: 200px;
-    background-color: brown;
+    background-color: #3a3a3a;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -75,17 +75,52 @@ main {
 }
 
 .versus-image {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     margin: 20px;
     background-image: url('../images/x.png');
     background-repeat: no-repeat;
     background-size: contain;
 }
 
+.versus-card-container {
+    position: relative;
+}
+
 .versus-card {
     width: 143px;
     height: 260px;
+}
+
+.versus-card-power {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+}
+
+.score-text {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    text-align: center;
+}
+
+#match-result {
+    max-height: 260px;
+}
+
+#match-result-text {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    text-align: center;
+}
+
+#restart-button {
+    width: 100px;
+    height: 40px;
+    margin: 20px;
+    text-align: center;
 }
 
 .deck-card {

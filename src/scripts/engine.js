@@ -3,10 +3,21 @@ const champImageURL = (champion) => `https://ddragon.leagueoflegends.com/cdn/img
 let championsJson;
 
 const state = {
+    round: 0,
+    wins: 0,
+    loses: 0,
+    draws: 0,
     playerDeck: document.getElementById('player-deck'),
     enemyDeck: document.getElementById('enemy-deck'),
     playerVersus: document.getElementById('versus-player-card'),
     enemyVersus: document.getElementById('versus-enemy-card'),
+    matchResult: document.getElementById('match-result'),
+    matchResultText: document.getElementById('match-result-text'),
+    crossImage: document.getElementById('cross-image'),
+    restartButton: document.getElementById('restart-button'),
+    score: document.getElementById('score'),
+    versusPlayerCardPower: document.getElementById('versus-player-card-power'),
+    versusEnemyCardPower: document.getElementById('versus-enemy-card-power'),
     cardDetail: {
         cardTitle: document.getElementById('detail-card-title'),
         cardSubTitle: document.getElementById('detail-card-subtitle'),
@@ -14,7 +25,8 @@ const state = {
         cardPower: document.getElementById('detail-card-power'),
         cardDescription: document.getElementById('detail-card-description'),
         cardNotSelected: document.getElementById('card-not-selected')
-    }
+    },
+    cardPowerMultiplier: 500
 }
 
 async function getChampionsData() {
@@ -38,18 +50,59 @@ function getRandomEnemyCard() {
     return cards.item(Math.floor(Math.random() * cards.length));
 }
 
+function calculateMath(player, enemy) {
+    const playerChamp = JSON.parse(player.dataset.champion);
+    const enemyChamp = JSON.parse(enemy.dataset.champion);
+
+    const playerPower = (Number(playerChamp.info.difficulty) * state.cardPowerMultiplier);
+    const enemyPower = (Number(enemyChamp.info.difficulty) * state.cardPowerMultiplier);
+
+    state.versusPlayerCardPower.innerHTML = playerPower;
+    state.versusEnemyCardPower.innerHTML = enemyPower;
+
+    state.matchResult.classList.remove('hidden');
+    state.crossImage.classList.add('hidden');
+
+    state.round++;
+
+    if (playerPower > enemyPower) {
+        state.matchResultText.innerHTML = "Player Won";
+        state.wins++;
+    } else if (playerPower < enemyPower) {
+        state.matchResultText.innerHTML = "Player Lose";
+        state.loses++;
+    } else {
+        state.matchResultText.innerHTML = "Draw";
+        state.draws++;
+    }
+
+    state.score.innerHTML = `${state.wins}/${state.draws}/${state.loses}`;
+
+    if (state.round == 5) {
+        if (state.wins >= 3) {
+            state.matchResultText.innerHTML = "Player Won the Match!";
+        } else {
+            state.matchResultText.innerHTML = "Player Lose the Match!";
+        }
+        state.restartButton.classList.remove('hidden');
+    }
+}
+
 function selectCard(event) {
-    const selectedCard = event.target;
+    const playerCard = event.target;
 
     // Atualizar carta no versus para o jogador
-    state.playerVersus.src = selectedCard.src;
-    
-    // Deletar carta do jogador
-    selectedCard.remove();
+    state.playerVersus.src = playerCard.src;
 
     // Atualizar carta no versus para o inimigo
     const enemyCard = getRandomEnemyCard();
     state.enemyVersus.src = enemyCard.src;
+
+    // Calculate Match
+    calculateMath(playerCard, enemyCard);
+
+    // Deletar carta do jogador
+    playerCard.remove();
 
     // Deletar carta do inimigo
     enemyCard.remove();
@@ -61,7 +114,7 @@ async function updateDetailSection(event) {
     state.cardDetail.cardNotSelected.classList.add('hidden');
     state.cardDetail.cardTitle.innerHTML = champion.name;
     state.cardDetail.cardSubTitle.innerHTML = champion.title;
-    state.cardDetail.cardPower.innerHTML = (Number(champion.info.difficulty) * 500);
+    state.cardDetail.cardPower.innerHTML = (Number(champion.info.difficulty) * state.cardPowerMultiplier);
     state.cardDetail.cardDescription.innerHTML = champion.blurb;
     state.cardDetail.cardImage.style.backgroundImage = `url('${champImageURL(champion.id)}')`;
     state.cardDetail.cardImage.classList.remove('hidden');

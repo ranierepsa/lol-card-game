@@ -35,12 +35,19 @@
         <section class="game-section">
             <div id="enemy-deck" class="deck"></div>
             <div class="versus">
-                <div>
+                <div class="versus-card-container">
                     <img id="versus-player-card" class="versus-card">
+                    <p id="versus-player-card-power" class="versus-card-power"></p>
                 </div>
-                <div class="versus-image"></div>
-                <div>
+                <div id="match-result" class="hidden">
+                    <p id="score" class="score-text"></p>
+                    <p id="match-result-text"></p>
+                    <button id="restart-button" onclick="window.location.reload();" class="hidden">Restart</button>
+                </div>
+                <div id="cross-image" class="versus-image"></div>
+                <div class="versus-card-container">
                     <img id="versus-enemy-card" class="versus-card">
+                    <p id="versus-enemy-card-power" class="versus-card-power"></p>
                 </div>
             </div>
             <div id="player-deck" class="deck"></div>
