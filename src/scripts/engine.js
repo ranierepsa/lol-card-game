@@ -12,7 +12,8 @@ const state = {
         cardSubTitle: document.getElementById('detail-card-subtitle'),
         cardImage: document.getElementById('card-selected'),
         cardPower: document.getElementById('detail-card-power'),
-        cardDescription: document.getElementById('detail-card-description')
+        cardDescription: document.getElementById('detail-card-description'),
+        cardNotSelected: document.getElementById('card-not-selected')
     }
 }
 
@@ -57,11 +58,13 @@ function selectCard(event) {
 async function updateDetailSection(event) {
     const champion = JSON.parse(event.target.dataset.champion);
 
+    state.cardDetail.cardNotSelected.classList.add('hidden');
     state.cardDetail.cardTitle.innerHTML = champion.name;
     state.cardDetail.cardSubTitle.innerHTML = champion.title;
     state.cardDetail.cardPower.innerHTML = (Number(champion.info.difficulty) * 500);
     state.cardDetail.cardDescription.innerHTML = champion.blurb;
     state.cardDetail.cardImage.style.backgroundImage = `url('${champImageURL(champion.id)}')`;
+    state.cardDetail.cardImage.classList.remove('hidden');
 }
 
 async function drawCards(amount, isPlayer) {
