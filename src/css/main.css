@@ -1,0 +1,154 @@
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.card-desc-section {
+    width: 30%;
+    height: 100%;
+    background-color: #a9a9a9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-selected {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-selected div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none;
+}
+
+/* right side */
+
+.game-section {
+    width: 70%;
+    height: 100%;
+    background-color: #FFFFCF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.deck {
+    width: 100%;
+    height: 200px;
+    background-color: #3a3a3a;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.versus {
+    width: 100%;
+    /* height: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.versus-image {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    background-image: url('../images/x.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.versus-card-container {
+    position: relative;
+}
+
+.versus-card {
+    width: 143px;
+    height: 260px;
+}
+
+.versus-card-power {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+}
+
+.score-text {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    text-align: center;
+}
+
+#match-result {
+    max-height: 260px;
+}
+
+#match-result-text {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    text-align: center;
+}
+
+#restart-button {
+    width: 100px;
+    height: 40px;
+    margin: 20px;
+    text-align: center;
+}
+
+.deck-card {
+    /* aspect-ratio 11x20 */
+    width: 110px;
+    height: 200px;
+}
+
+.player-deck-card {
+    transition: transform 0.2s;
+}
+
+.player-deck-card:hover {
+    transform: scale(1.2) translateY(-20px);
+}
+
+/* left side */
+
+.detail-card-title {
+    font-size: 2rem;
+}
+
+.detail-card-subtitle {
+    font-size: 1.2rem;
+    padding-top: 1.5rem;
+}
+
+.detail-card-power {
+    font-size: 2rem;
+    padding-top: 1rem;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoL Card Game</title>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/main.css">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <section class="card-desc-section">
+            <div id="card-not-selected">
+                <h1>Select a Card</h1>
+            </div>
+            <div id="card-selected" class="card-selected hidden">
+                <div>
+                    <p id="detail-card-title" class="detail-card-title">Card Title</p>
+                    <p id="detail-card-subtitle" class="detail-card-subtitle">Card Subtitle</p>
+                </div>
+                <div>
+                    <p id="detail-card-power" class="detail-card-power">Card Power</p>
+                </div>
+                <p id="detail-card-description" class="detail-card-description">Card Description</p>
+            </div>
+        </section>
+
+        <section class="game-section">
+            <div id="enemy-deck" class="deck"></div>
+            <div class="versus">
+                <div class="versus-card-container">
+                    <img id="versus-player-card" class="versus-card">
+                    <p id="versus-player-card-power" class="versus-card-power"></p>
+                </div>
+                <div id="match-result" class="hidden">
+                    <p id="score" class="score-text"></p>
+                    <p id="match-result-text"></p>
+                    <button id="restart-button" onclick="window.location.reload();" class="hidden">Restart</button>
+                </div>
+                <div id="cross-image" class="versus-image"></div>
+                <div class="versus-card-container">
+                    <img id="versus-enemy-card" class="versus-card">
+                    <p id="versus-enemy-card-power" class="versus-card-power"></p>
+                </div>
+            </div>
+            <div id="player-deck" class="deck"></div>
+        </section>
+    </main>
+
+    <script defer type="text/javascript" src="./src/scripts/engine.js"></script>
+</body>
+</html>
